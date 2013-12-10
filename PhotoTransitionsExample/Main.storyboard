@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5023" systemVersion="13A598" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="KSF-cV-Nct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="TYh-gn-V6f">
+            <objects>
+                <tableViewController id="aNe-eG-8hf" customClass="MainViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="jeg-7V-qJH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="Default" id="NVF-4e-gRp">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PhotoCell" rowHeight="74" id="IHS-mk-dKu">
+                                        <rect key="frame" x="0.0" y="119" width="320" height="74"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IHS-mk-dKu" id="YEE-zZ-1aA">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="73"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Tap on the image to display it using a default modal transition" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4AD-LO-nSo">
+                                                    <rect key="frame" x="92" y="7" width="228" height="60"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="228" id="OUH-Wg-4zw"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t3Z-0A-u83">
+                                                    <rect key="frame" x="8" y="7" width="80" height="60"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="60" id="FEW-HZ-ktN"/>
+                                                        <constraint firstAttribute="width" secondItem="t3Z-0A-u83" secondAttribute="height" multiplier="4:3" id="tO1-D6-fG8"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <state key="normal" title="Button" image="PiperWow1">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <state key="selected" image="PiperWow1"/>
+                                                    <connections>
+                                                        <action selector="defaultModal:" destination="aNe-eG-8hf" eventType="touchUpInside" id="y4f-8X-Z8u"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="4AD-LO-nSo" secondAttribute="bottom" constant="6" id="0ib-k9-SyA"/>
+                                                <constraint firstItem="4AD-LO-nSo" firstAttribute="leading" secondItem="t3Z-0A-u83" secondAttribute="trailing" constant="4" id="98C-Xg-pcJ"/>
+                                                <constraint firstItem="t3Z-0A-u83" firstAttribute="leading" secondItem="YEE-zZ-1aA" secondAttribute="leading" constant="8" id="AnX-Sb-3ZV"/>
+                                                <constraint firstItem="4AD-LO-nSo" firstAttribute="top" secondItem="YEE-zZ-1aA" secondAttribute="top" constant="7" id="RbN-f9-eZo"/>
+                                                <constraint firstItem="t3Z-0A-u83" firstAttribute="top" secondItem="YEE-zZ-1aA" secondAttribute="top" constant="7" id="kXe-2b-TEP"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="aNe-eG-8hf" id="oA9-ch-QtA"/>
+                            <outlet property="delegate" destination="aNe-eG-8hf" id="WQ4-PC-TZ5"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="ZXX-Dp-MwO"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aEd-OD-N0s" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="652" y="61"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="YGw-qC-Myp">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KSF-cV-Nct" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eo5-qp-Zrt">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="aNe-eG-8hf" kind="relationship" relationship="rootViewController" id="KAy-dl-pMO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yab-Pe-Mtj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="126" y="61"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="PiperWow1" width="1000" height="750"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

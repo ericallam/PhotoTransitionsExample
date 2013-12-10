@@ -19,6 +19,10 @@
 		0731B1E81857228F009581A8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0731B1D01857228F009581A8 /* UIKit.framework */; };
 		0731B1F01857228F009581A8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0731B1EE1857228F009581A8 /* InfoPlist.strings */; };
 		0731B1F21857228F009581A8 /* PhotoTransitionsExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0731B1F11857228F009581A8 /* PhotoTransitionsExampleTests.m */; };
+		0731B1FC185722BD009581A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0731B1FB185722BD009581A8 /* Main.storyboard */; };
+		0731B1FF18572629009581A8 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0731B1FE18572629009581A8 /* MainViewController.m */; };
+		0731B2061857295A009581A8 /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0731B2041857295A009581A8 /* PhotoViewController.m */; };
+		0731B2071857295A009581A8 /* PhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0731B2051857295A009581A8 /* PhotoViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +52,12 @@
 		0731B1ED1857228F009581A8 /* PhotoTransitionsExampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PhotoTransitionsExampleTests-Info.plist"; sourceTree = "<group>"; };
 		0731B1EF1857228F009581A8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0731B1F11857228F009581A8 /* PhotoTransitionsExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoTransitionsExampleTests.m; sourceTree = "<group>"; };
+		0731B1FB185722BD009581A8 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		0731B1FD18572629009581A8 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		0731B1FE18572629009581A8 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		0731B2031857295A009581A8 /* PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewController.h; sourceTree = "<group>"; };
+		0731B2041857295A009581A8 /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
+		0731B2051857295A009581A8 /* PhotoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +121,12 @@
 				0731B1DC1857228F009581A8 /* AppDelegate.m */,
 				0731B1DE1857228F009581A8 /* Images.xcassets */,
 				0731B1D31857228F009581A8 /* Supporting Files */,
+				0731B1FB185722BD009581A8 /* Main.storyboard */,
+				0731B1FD18572629009581A8 /* MainViewController.h */,
+				0731B1FE18572629009581A8 /* MainViewController.m */,
+				0731B2031857295A009581A8 /* PhotoViewController.h */,
+				0731B2041857295A009581A8 /* PhotoViewController.m */,
+				0731B2051857295A009581A8 /* PhotoViewController.xib */,
 			);
 			path = PhotoTransitionsExample;
 			sourceTree = "<group>";
@@ -219,6 +235,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0731B1FC185722BD009581A8 /* Main.storyboard in Resources */,
+				0731B2071857295A009581A8 /* PhotoViewController.xib in Resources */,
 				0731B1D71857228F009581A8 /* InfoPlist.strings in Resources */,
 				0731B1DF1857228F009581A8 /* Images.xcassets in Resources */,
 			);
@@ -240,6 +258,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0731B1DD1857228F009581A8 /* AppDelegate.m in Sources */,
+				0731B2061857295A009581A8 /* PhotoViewController.m in Sources */,
+				0731B1FF18572629009581A8 /* MainViewController.m in Sources */,
 				0731B1D91857228F009581A8 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
