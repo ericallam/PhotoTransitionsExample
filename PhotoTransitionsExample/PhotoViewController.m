@@ -29,5 +29,14 @@
     [super viewDidLoad];
     
     self.photoView.image = self.image;
+    
+    if (self.modalPresentationStyle == UIModalPresentationCustom) {
+        [self configureViewForCustomPresentation];
+    }
+}
+
+- (void)configureViewForCustomPresentation
+{
+    self.view.backgroundColor = [UIColor clearColor];
 }
 @end
