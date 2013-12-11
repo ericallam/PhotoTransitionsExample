@@ -9,9 +9,7 @@
 #import "BasicScaleTransition.h"
 
 @interface BasicScaleTransition ()
-@property (assign, nonatomic) CGPoint startingPoint;
-@property (strong, nonatomic) id<UIViewControllerContextTransitioning> context;
-@property (assign, nonatomic) NSTimeInterval duration;
+@property (assign, atomic) UIViewAnimationCurve animationCurve;
 @end
 
 @implementation BasicScaleTransition
@@ -20,10 +18,21 @@
 {
     if (self = [super init]) {
         self.startingPoint = startingPoint;
-        self.duration = 1.0f;
+        self.duration = 0.2f;
+        self.animationCurve = UIViewAnimationCurveEaseIn;
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(keyboardWillBeHidden:)
+                                                     name:UIKeyboardWillHideNotification object:nil];
     }
     
     return self;
+}
+
+- (void)keyboardWillBeHidden:(NSNotification*)aNotification
+{
+    self.duration = [[aNotification userInfo][UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    self.animationCurve = [[aNotification userInfo][UIKeyboardAnimationCurveUserInfoKey] integerValue];
 }
 
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext
@@ -49,14 +58,25 @@
     
     [[self.context containerView] addSubview:toView];
     
-    [UIView animateWithDuration:self.duration delay:0.0f usingSpringWithDamping:0.8 initialSpringVelocity:0.4 options:UIViewAnimationOptionCurveLinear animations:^{
-        
-        toView.transform = CGAffineTransformIdentity;
-        toView.center = fromVC.view.center;
-        
-    } completion:^(BOOL finished) {
-        [self.context completeTransition:YES];
-    }];
+    [UIView beginAnimations:nil context:NULL];
+    
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDidStopSelector:@selector(animationDidStop:finished:context:)];
+    
+    [UIView setAnimationDuration:self.duration];
+    [UIView setAnimationCurve:self.animationCurve];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    
+    toView.transform = CGAffineTransformIdentity;
+    toView.center = fromVC.view.center;
+    fromVC.view.transform = CGAffineTransformMakeScale(0.9f, 0.9f);
+    
+    [UIView commitAnimations];
+}
+
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag context:(void *)context
+{
+    [self.context completeTransition:YES];
 }
 
 @end

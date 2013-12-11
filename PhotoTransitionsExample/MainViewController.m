@@ -9,6 +9,7 @@
 #import "MainViewController.h"
 #import "PhotoViewController.h"
 #import "BasicScaleTransition.h"
+#import "DynamicScaleTransition.h"
 
 @interface MainViewController () <UIViewControllerTransitioningDelegate>
 @property (assign, nonatomic) CGPoint currentPoint;

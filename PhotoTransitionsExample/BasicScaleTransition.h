@@ -10,6 +10,10 @@
 
 @interface BasicScaleTransition : NSObject <UIViewControllerAnimatedTransitioning>
 
+@property (strong, nonatomic) id<UIViewControllerContextTransitioning> context;
+@property (assign, nonatomic) CGPoint startingPoint;
+@property (assign, atomic) NSTimeInterval duration;
+
 - (instancetype)initWithStartingPoint:(CGPoint)startingPoint;
 
 @end

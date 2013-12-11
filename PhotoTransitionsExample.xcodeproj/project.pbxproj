@@ -24,6 +24,7 @@
 		0731B2061857295A009581A8 /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0731B2041857295A009581A8 /* PhotoViewController.m */; };
 		0731B2071857295A009581A8 /* PhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0731B2051857295A009581A8 /* PhotoViewController.xib */; };
 		0731B20B18573452009581A8 /* BasicScaleTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 0731B20A18573452009581A8 /* BasicScaleTransition.m */; };
+		078DD08D18590C5D00C8D1A7 /* DynamicScaleTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 078DD08C18590C5D00C8D1A7 /* DynamicScaleTransition.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,8 @@
 		0731B2051857295A009581A8 /* PhotoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoViewController.xib; sourceTree = "<group>"; };
 		0731B20918573452009581A8 /* BasicScaleTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicScaleTransition.h; sourceTree = "<group>"; };
 		0731B20A18573452009581A8 /* BasicScaleTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicScaleTransition.m; sourceTree = "<group>"; };
+		078DD08B18590C5D00C8D1A7 /* DynamicScaleTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicScaleTransition.h; sourceTree = "<group>"; };
+		078DD08C18590C5D00C8D1A7 /* DynamicScaleTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicScaleTransition.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +172,8 @@
 			children = (
 				0731B20918573452009581A8 /* BasicScaleTransition.h */,
 				0731B20A18573452009581A8 /* BasicScaleTransition.m */,
+				078DD08B18590C5D00C8D1A7 /* DynamicScaleTransition.h */,
+				078DD08C18590C5D00C8D1A7 /* DynamicScaleTransition.m */,
 			);
 			name = Transitions;
 			sourceTree = "<group>";
@@ -275,6 +280,7 @@
 				0731B20B18573452009581A8 /* BasicScaleTransition.m in Sources */,
 				0731B1FF18572629009581A8 /* MainViewController.m in Sources */,
 				0731B1D91857228F009581A8 /* main.m in Sources */,
+				078DD08D18590C5D00C8D1A7 /* DynamicScaleTransition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,7 +402,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PhotoTransitionsExample/PhotoTransitionsExample-Prefix.pch";
 				INFOPLIST_FILE = "PhotoTransitionsExample/PhotoTransitionsExample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -409,7 +417,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PhotoTransitionsExample/PhotoTransitionsExample-Prefix.pch";
 				INFOPLIST_FILE = "PhotoTransitionsExample/PhotoTransitionsExample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -431,6 +441,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "PhotoTransitionsExampleTests/PhotoTransitionsExampleTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -450,6 +461,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PhotoTransitionsExample/PhotoTransitionsExample-Prefix.pch";
 				INFOPLIST_FILE = "PhotoTransitionsExampleTests/PhotoTransitionsExampleTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -475,6 +487,7 @@
 				0731B1F71857228F009581A8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0731B1F81857228F009581A8 /* Build configuration list for PBXNativeTarget "PhotoTransitionsExampleTests" */ = {
 			isa = XCConfigurationList;
@@ -483,6 +496,7 @@
 				0731B1FA1857228F009581A8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
