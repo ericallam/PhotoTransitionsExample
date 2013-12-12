@@ -7,7 +7,6 @@
 //
 
 #import "ScaleAndBlurTransition.h"
-#import <GPUImage/GPUImage.h>
 #import "UIImage+ImageEffects.h"
 
 @interface ScaleAndBlurTransition ()
