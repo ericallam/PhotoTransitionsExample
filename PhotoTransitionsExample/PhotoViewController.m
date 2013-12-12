@@ -7,17 +7,26 @@
 //
 
 #import "PhotoViewController.h"
+#import "ScaleAndBlurTransition.h"
 
 @interface PhotoViewController ()
-@property (weak, nonatomic) UIImage *image;
+@property (strong, nonatomic) UIImage *image;
+@property (strong, nonatomic) ScaleAndBlurTransition *scaleAndBlurTransition;
+@property (strong, nonatomic) id<UIViewControllerInteractiveTransitioning> interactiveTransition;
 @end
 
 @implementation PhotoViewController
 
 - (instancetype)initWithImage:(UIImage *)image;
 {
+    return [self initWithImage:image startingFrame:CGRectInfinite];
+}
+
+- (instancetype)initWithImage:(UIImage *)image startingFrame:(CGRect)startingFrame;
+{
     if (self = [super init]) {
         self.image = image;
+        self.scaleAndBlurTransition = [[ScaleAndBlurTransition alloc] initWithStartingFrame:startingFrame];
     }
     
     return self;
@@ -37,11 +46,85 @@
     
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTapped:)];
     [self.view addGestureRecognizer:tapGesture];
+    
+    UIPinchGestureRecognizer *pinchGesture = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(didPinch:)];
+    [self.view addGestureRecognizer:pinchGesture];
 }
 
 - (void)viewTapped:(UITapGestureRecognizer *)gesture
-{    
+{
+    self.interactiveTransition = nil;
+    
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)didPinch:(UIPinchGestureRecognizer *)gesture
+{
+    UIPercentDrivenInteractiveTransition *transition = (UIPercentDrivenInteractiveTransition *)self.interactiveTransition;
+    
+    switch (gesture.state) {
+        case UIGestureRecognizerStateBegan: {
+            self.interactiveTransition = [UIPercentDrivenInteractiveTransition new];
+            
+            NSLog(@"Pinch began, scale: %f", gesture.scale);
+            
+            [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+            
+            break;
+        }
+        case UIGestureRecognizerStateChanged: {
+            NSLog(@"Pinch changed, scale: %f", gesture.scale);
+            
+            if (gesture.scale > 1.0) {
+                self.view.transform = CGAffineTransformMakeScale(gesture.scale, gesture.scale);
+            }else{
+                [transition updateInteractiveTransition:1.0-gesture.scale];
+            }
+            
+            
+            
+            break;
+        }
+        case UIGestureRecognizerStateCancelled:
+        case UIGestureRecognizerStateEnded: {
+            
+            transition.completionSpeed = MIN(MAX(fabs(gesture.velocity), 0.1), 1.5);
+            
+            if (gesture.scale < 0.5) {
+                [transition finishInteractiveTransition];
+            }else{
+                [transition cancelInteractiveTransition];
+            }
+            
+            break;
+        }
+        default:
+            break;
+    }
+}
+
+#pragma mark - UIViewControllerTransitioningDelegate methods
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source
+{
+    return self.scaleAndBlurTransition;
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
+{
+    self.scaleAndBlurTransition.reverse = YES;
+    
+    return self.scaleAndBlurTransition;
+}
+
+- (id<UIViewControllerInteractiveTransitioning>)interactionControllerForDismissal:(id<UIViewControllerAnimatedTransitioning>)animator
+{
+    return self.interactiveTransition;
+    
+    // Could be a pinch gesture (PercentDriven)
+    // Could be a swipe (Uses dynamic attaching and push, does not use PercentDriven
+    
+    // Could be nothing
 }
 
 @end

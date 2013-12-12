@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PhotoViewController : UIViewController
+@interface PhotoViewController : UIViewController <UIViewControllerTransitioningDelegate>
 - (instancetype)initWithImage:(UIImage *)image;
+- (instancetype)initWithImage:(UIImage *)image startingFrame:(CGRect)startingFrame;
 @end

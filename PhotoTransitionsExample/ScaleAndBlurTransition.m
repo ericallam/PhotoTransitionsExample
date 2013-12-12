@@ -79,7 +79,7 @@ static UIImage *snapshotView(UIView *view){
                          self.sourcePlaceholderView.transform = CGAffineTransformIdentity;
                          fromVC.view.frame = self.startingFrame;
                      } completion:^(BOOL finished) {
-                         [self.context completeTransition:YES];
+                         [self.context completeTransition:![self.context transitionWasCancelled]];
                      }];
 
 }
@@ -129,7 +129,14 @@ static UIImage *snapshotView(UIView *view){
 
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag context:(void *)context
 {
-    [self.context completeTransition:YES];
+    [self.context completeTransition:![self.context transitionWasCancelled]];
+}
+
+- (void)didPinch:(UIPinchGestureRecognizer *)gesture
+{
+    if (gesture.state == UIGestureRecognizerStateBegan){
+        self.interactiveTransition = [UIPercentDrivenInteractiveTransition new];
+    }
 }
 
 

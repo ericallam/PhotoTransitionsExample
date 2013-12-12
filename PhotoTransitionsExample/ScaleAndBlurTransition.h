@@ -13,5 +13,6 @@
 - (instancetype)initWithStartingFrame:(CGRect)startingFrame;
 
 @property (assign, nonatomic) BOOL reverse;
+@property (strong, nonatomic) id<UIViewControllerInteractiveTransitioning> interactiveTransition;
 
 @end
