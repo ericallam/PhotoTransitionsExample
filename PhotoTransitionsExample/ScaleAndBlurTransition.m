@@ -39,6 +39,7 @@ static UIImage *snapshotView(UIView *view){
         self.duration = 0.2f;
         self.animationCurve = UIViewAnimationCurveEaseIn;
         self.reverse = NO;
+        self.destinationViewAlreadyOutOfFrame = NO;
         
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(keyboardWillBeHidden:)
@@ -77,7 +78,11 @@ static UIImage *snapshotView(UIView *view){
     [UIView animateWithDuration:self.duration delay:0 options:UIViewAnimationOptionCurveEaseIn
                      animations:^{
                          self.sourcePlaceholderView.transform = CGAffineTransformIdentity;
-                         fromVC.view.frame = self.startingFrame;
+                         
+                         if (!self.destinationViewAlreadyOutOfFrame) {
+                            fromVC.view.frame = self.startingFrame;
+                         }
+                         
                      } completion:^(BOOL finished) {
                          [self.context completeTransition:![self.context transitionWasCancelled]];
                      }];

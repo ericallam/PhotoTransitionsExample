@@ -11,6 +11,10 @@
 
 @interface PhotoViewController ()
 @property (strong, nonatomic) UIImage *image;
+@property (strong, nonatomic) UIDynamicAnimator *animator;
+@property (strong, nonatomic) UIAttachmentBehavior *panAttachment;
+@property (strong, nonatomic) UIGravityBehavior *gravity;
+@property (strong, nonatomic) UIPushBehavior *pushBehavior;
 @property (strong, nonatomic) ScaleAndBlurTransition *scaleAndBlurTransition;
 @property (strong, nonatomic) id<UIViewControllerInteractiveTransitioning> interactiveTransition;
 @end
@@ -49,6 +53,94 @@
     
     UIPinchGestureRecognizer *pinchGesture = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(didPinch:)];
     [self.view addGestureRecognizer:pinchGesture];
+    
+    UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(didPan:)];
+    [self.view addGestureRecognizer:panGesture];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view.superview];
+}
+
+- (void)didPan:(UIPanGestureRecognizer *)gesture
+{
+    CGPoint location = [gesture locationInView:self.view.superview];
+
+    switch (gesture.state) {
+        case UIGestureRecognizerStateBegan: {
+            
+            [self.animator removeAllBehaviors];
+            
+            UIDynamicItemBehavior *rotationBehavior = [[UIDynamicItemBehavior alloc] initWithItems:@[self.view]];
+            rotationBehavior.allowsRotation = YES;
+            rotationBehavior.angularResistance = 10.0f;
+            
+            [self.animator addBehavior:rotationBehavior];
+
+            CGPoint viewCenter = self.view.center;
+            
+            UIOffset centerOffset = UIOffsetMake(location.x - viewCenter.x, location.y - viewCenter.y);
+            
+            self.panAttachment = [[UIAttachmentBehavior alloc] initWithItem:self.view offsetFromCenter:centerOffset attachedToAnchor:location];
+            self.panAttachment.damping = 0.7f;
+            self.panAttachment.length = 0;
+            [self.animator addBehavior:self.panAttachment];
+            
+            break;
+        }
+        case UIGestureRecognizerStateChanged: {
+            self.panAttachment.anchorPoint = location;
+            
+            break;
+        }
+        case UIGestureRecognizerStateCancelled: {
+            
+            break;
+        }
+        case UIGestureRecognizerStateEnded: {
+            CGPoint velocity = [gesture velocityInView:self.view.superview];
+            
+            if (fabs(velocity.x) > 400 || fabs(velocity.y) > 400) {
+                // "Finish" the dismissal
+                [self.animator removeBehavior:self.panAttachment];
+                
+                self.pushBehavior = [[UIPushBehavior alloc] initWithItems:@[self.view] mode:UIPushBehaviorModeInstantaneous];
+                self.pushBehavior.pushDirection = CGVectorMake(velocity.x / 10.0f, velocity.y / 10.0f);
+                
+                [self.animator addBehavior:self.pushBehavior];
+                
+                __weak typeof(self) weakSelf = self;
+                
+                self.pushBehavior.action = ^{
+                    if (!CGRectIntersectsRect(weakSelf.view.frame, weakSelf.view.superview.frame)) {
+                        
+                        [weakSelf.animator removeAllBehaviors];
+                        
+                        weakSelf.scaleAndBlurTransition.destinationViewAlreadyOutOfFrame = YES;
+                        
+                        weakSelf.interactiveTransition = nil;
+                        
+                        [weakSelf dismissViewControllerAnimated:YES completion:nil];
+                    }
+                };
+            }else{
+                // "Cancel" the dismissal
+                
+                [self.animator removeAllBehaviors];
+                
+                UISnapBehavior *snapIt = [[UISnapBehavior alloc] initWithItem:self.view snapToPoint:CGPointMake(160, 284)];
+                snapIt.damping = 0.7;
+                
+                [self.animator addBehavior:snapIt];
+                
+            }
+            
+            break;
+        }
+        default:
+            break;
+    }
 }
 
 - (void)viewTapped:(UITapGestureRecognizer *)gesture
