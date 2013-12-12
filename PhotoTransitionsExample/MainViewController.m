@@ -23,7 +23,6 @@
 
 - (IBAction)basicScaleModal:(UIControl *)sender forEvent:(UIEvent *)event
 {
-    
     CGRect senderFrame = [sender convertRect:sender.bounds toView:nil];
     
     PhotoViewController *photoVC = [[PhotoViewController alloc] initWithImage:[UIImage imageNamed:@"PiperWow2"]
@@ -33,6 +32,11 @@
     photoVC.transitioningDelegate = photoVC;
     
     [self presentViewController:photoVC animated:YES completion:nil];
+}
+
+- (IBAction)keyboardAwareModal:(UIControl *)sender forEvent:(UIEvent *)event
+{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
 }
 
 @end

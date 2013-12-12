@@ -75,6 +75,8 @@ static UIImage *snapshotView(UIView *view){
 {
     UIViewController *fromVC = [self.context viewControllerForKey:UITransitionContextFromViewControllerKey];
     
+    UIViewController *toVC = [self.context viewControllerForKey:UITransitionContextToViewControllerKey];
+    
     [UIView animateWithDuration:self.duration delay:0 options:UIViewAnimationOptionCurveEaseIn
                      animations:^{
                          self.sourcePlaceholderView.transform = CGAffineTransformIdentity;
@@ -84,6 +86,7 @@ static UIImage *snapshotView(UIView *view){
                          }
                          
                      } completion:^(BOOL finished) {
+                         toVC.view.alpha = 100;
                          [self.context completeTransition:![self.context transitionWasCancelled]];
                      }];
 
@@ -101,7 +104,7 @@ static UIImage *snapshotView(UIView *view){
     self.sourcePlaceholderView.frame = CGRectMake(-25, -25, containerView.bounds.size.width+50, containerView.bounds.size.height+50);
     [containerView addSubview:self.sourcePlaceholderView];
     
-    [fromVC.view removeFromSuperview];
+    fromVC.view.alpha = 0;
     
     UIViewController *toVC = [self.context viewControllerForKey:UITransitionContextToViewControllerKey];
     

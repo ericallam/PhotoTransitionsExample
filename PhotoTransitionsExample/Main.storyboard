@@ -61,7 +61,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Scale" id="DEh-sy-mKI">
+                            <tableViewSection headerTitle="Basic Scale" id="DEh-sy-mKI">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PhotoCell" rowHeight="74" id="dtV-j7-Vut">
                                         <rect key="frame" x="0.0" y="241" width="320" height="74"/>
@@ -70,7 +70,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="73"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Tap on the image to display it using a BasicScaleTransition" translatesAutoresizingMaskIntoConstraints="NO" id="9Kr-F2-YZg">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Tap on the image to display it using a BasicScaleTransition, and then tap again to dismiss" translatesAutoresizingMaskIntoConstraints="NO" id="9Kr-F2-YZg">
                                                     <rect key="frame" x="92" y="7" width="228" height="60"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -103,6 +103,53 @@
                                                 <constraint firstAttribute="bottom" secondItem="9Kr-F2-YZg" secondAttribute="bottom" constant="6" id="J4a-n7-hBs"/>
                                                 <constraint firstItem="9Kr-F2-YZg" firstAttribute="top" secondItem="tvt-5v-yrj" secondAttribute="top" constant="7" id="Ka1-Jt-3Xe"/>
                                                 <constraint firstItem="sjN-GJ-rXQ" firstAttribute="top" secondItem="tvt-5v-yrj" secondAttribute="top" constant="7" id="UGo-GY-MXd"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Keyboard Aware Transition" id="bL0-43-cmI">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PhotoCell" rowHeight="74" id="vQc-gh-GY1">
+                                        <rect key="frame" x="0.0" y="363" width="320" height="74"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vQc-gh-GY1" id="R1y-sN-WXO">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="73"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Tap on this text box to bring up a keyboard and then tap on the photo" translatesAutoresizingMaskIntoConstraints="NO" id="0F6-Vx-XlQ">
+                                                    <rect key="frame" x="92" y="7" width="228" height="60"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="228" id="XgW-2g-g9H"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pjj-9M-3s2">
+                                                    <rect key="frame" x="8" y="7" width="80" height="60"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="Pjj-9M-3s2" secondAttribute="height" multiplier="4:3" id="4Kc-c2-vEb"/>
+                                                        <constraint firstAttribute="height" constant="60" id="OCy-m0-NzJ"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <state key="normal" title="Button" image="PiperWow3">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <state key="selected" image="PiperWow3"/>
+                                                    <connections>
+                                                        <action selector="keyboardAwareModal:forEvent:" destination="aNe-eG-8hf" eventType="touchUpInside" id="eX7-R3-sFA"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Pjj-9M-3s2" firstAttribute="leading" secondItem="R1y-sN-WXO" secondAttribute="leading" constant="8" id="25h-HC-Xv6"/>
+                                                <constraint firstItem="Pjj-9M-3s2" firstAttribute="top" secondItem="R1y-sN-WXO" secondAttribute="top" constant="7" id="4ea-Va-Jcj"/>
+                                                <constraint firstItem="0F6-Vx-XlQ" firstAttribute="top" secondItem="R1y-sN-WXO" secondAttribute="top" constant="7" id="AlP-xW-XN1"/>
+                                                <constraint firstAttribute="bottom" secondItem="0F6-Vx-XlQ" secondAttribute="bottom" constant="6" id="DV3-L2-M6O"/>
+                                                <constraint firstItem="0F6-Vx-XlQ" firstAttribute="leading" secondItem="Pjj-9M-3s2" secondAttribute="trailing" constant="4" id="muh-2T-6Fd"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -142,6 +189,7 @@
     <resources>
         <image name="PiperWow1" width="1000" height="750"/>
         <image name="PiperWow2" width="1000" height="750"/>
+        <image name="PiperWow3" width="1000" height="750"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
