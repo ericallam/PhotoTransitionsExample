@@ -14,11 +14,11 @@
 
 @implementation BasicScaleTransition
 
-- (instancetype)initWithStartingPoint:(CGPoint)startingPoint;
+- (instancetype)initWithStartingFrame:(CGRect)startingFrame;
 {
     if (self = [super init]) {
-        self.startingPoint = startingPoint;
-        self.duration = 0.2f;
+        self.startingFrame = startingFrame;
+        self.duration = 0.4f;
         self.animationCurve = UIViewAnimationCurveEaseIn;
         
         [[NSNotificationCenter defaultCenter] addObserver:self
@@ -48,13 +48,10 @@
     UIViewController *toVC = [self.context viewControllerForKey:UITransitionContextToViewControllerKey];
     
     UIView *toView = toVC.view;
-    toView.center = self.startingPoint;
     
-    CGAffineTransform t = CGAffineTransformIdentity;
-    
-    t = CGAffineTransformScale(t, 0.2f, 0.2f);
-    
-    toView.transform = t;
+    CGRect originalFrame = toView.frame;
+
+    toView.frame = self.startingFrame;
     
     [[self.context containerView] addSubview:toView];
     
@@ -67,8 +64,12 @@
     [UIView setAnimationCurve:self.animationCurve];
     [UIView setAnimationBeginsFromCurrentState:YES];
     
-    toView.transform = CGAffineTransformIdentity;
-    toView.center = fromVC.view.center;
+    CGFloat containerHeight = CGRectGetHeight(self.context.containerView.frame);
+    CGFloat originalHeight = CGRectGetHeight(originalFrame);
+    
+    CGFloat coordinateY = (containerHeight / 2) - (originalHeight / 2);
+    
+    toView.frame = CGRectMake(0, coordinateY, CGRectGetWidth(originalFrame), CGRectGetHeight(originalFrame));
     fromVC.view.transform = CGAffineTransformMakeScale(0.9f, 0.9f);
     
     [UIView commitAnimations];

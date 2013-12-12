@@ -12,7 +12,7 @@
 #import "DynamicScaleTransition.h"
 
 @interface MainViewController () <UIViewControllerTransitioningDelegate>
-@property (assign, nonatomic) CGPoint currentPoint;
+@property (assign, nonatomic) CGRect currentFrame;
 @end
 
 @implementation MainViewController
@@ -28,10 +28,7 @@
 {
     PhotoViewController *photoVC = [[PhotoViewController alloc] initWithImage:[UIImage imageNamed:@"PiperWow2"]];
     
-    UITouch *touch = [[event touchesForView:sender] anyObject];
-    self.currentPoint = [touch locationInView:[[UIApplication sharedApplication] keyWindow]];
-    
-    NSLog(@"locationInView: %@", NSStringFromCGPoint(self.currentPoint));
+    self.currentFrame = [sender convertRect:sender.bounds toView:nil];
     
     photoVC.modalPresentationStyle = UIModalPresentationCustom;
     photoVC.transitioningDelegate = self;
@@ -41,7 +38,7 @@
 
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source
 {
-    BasicScaleTransition *transition = [[BasicScaleTransition alloc] initWithStartingPoint:self.currentPoint];
+    BasicScaleTransition *transition = [[BasicScaleTransition alloc] initWithStartingFrame:self.currentFrame];
     
     return transition;
 }

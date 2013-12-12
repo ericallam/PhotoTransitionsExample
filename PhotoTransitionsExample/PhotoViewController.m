@@ -10,7 +10,6 @@
 
 @interface PhotoViewController ()
 @property (weak, nonatomic) UIImage *image;
-@property (weak, nonatomic) IBOutlet UIImageView *photoView;
 @end
 
 @implementation PhotoViewController
@@ -28,15 +27,12 @@
 {
     [super viewDidLoad];
     
-    self.photoView.image = self.image;
+    self.view = [[UIImageView alloc] initWithImage:self.image];
     
-    if (self.modalPresentationStyle == UIModalPresentationCustom) {
-        [self configureViewForCustomPresentation];
-    }
-}
-
-- (void)configureViewForCustomPresentation
-{
-    self.view.backgroundColor = [UIColor clearColor];
+    CGFloat ratio = CGRectGetHeight(self.view.frame) / CGRectGetWidth(self.view.frame);
+    
+    self.view.frame = CGRectMake(0, 0, 320, 320*ratio);
+    self.view.contentMode = UIViewContentModeScaleAspectFit;
+    self.view.userInteractionEnabled = YES;
 }
 @end

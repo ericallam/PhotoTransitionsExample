@@ -22,9 +22,9 @@
 		0731B1FC185722BD009581A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0731B1FB185722BD009581A8 /* Main.storyboard */; };
 		0731B1FF18572629009581A8 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0731B1FE18572629009581A8 /* MainViewController.m */; };
 		0731B2061857295A009581A8 /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0731B2041857295A009581A8 /* PhotoViewController.m */; };
-		0731B2071857295A009581A8 /* PhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0731B2051857295A009581A8 /* PhotoViewController.xib */; };
 		0731B20B18573452009581A8 /* BasicScaleTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 0731B20A18573452009581A8 /* BasicScaleTransition.m */; };
 		078DD08D18590C5D00C8D1A7 /* DynamicScaleTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 078DD08C18590C5D00C8D1A7 /* DynamicScaleTransition.m */; };
+		D4B2BBAF1B184801B69A7DEF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 09669CF04BCC47D0A4D4AA86 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,11 +59,12 @@
 		0731B1FE18572629009581A8 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		0731B2031857295A009581A8 /* PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewController.h; sourceTree = "<group>"; };
 		0731B2041857295A009581A8 /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
-		0731B2051857295A009581A8 /* PhotoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoViewController.xib; sourceTree = "<group>"; };
 		0731B20918573452009581A8 /* BasicScaleTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicScaleTransition.h; sourceTree = "<group>"; };
 		0731B20A18573452009581A8 /* BasicScaleTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicScaleTransition.m; sourceTree = "<group>"; };
 		078DD08B18590C5D00C8D1A7 /* DynamicScaleTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicScaleTransition.h; sourceTree = "<group>"; };
 		078DD08C18590C5D00C8D1A7 /* DynamicScaleTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicScaleTransition.m; sourceTree = "<group>"; };
+		09669CF04BCC47D0A4D4AA86 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7587AF61826C4926A79A338A /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +75,7 @@
 				0731B1CF1857228F009581A8 /* CoreGraphics.framework in Frameworks */,
 				0731B1D11857228F009581A8 /* UIKit.framework in Frameworks */,
 				0731B1CD1857228F009581A8 /* Foundation.framework in Frameworks */,
+				D4B2BBAF1B184801B69A7DEF /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +99,7 @@
 				0731B1EB1857228F009581A8 /* PhotoTransitionsExampleTests */,
 				0731B1CB1857228F009581A8 /* Frameworks */,
 				0731B1CA1857228F009581A8 /* Products */,
+				7587AF61826C4926A79A338A /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -116,6 +119,7 @@
 				0731B1CE1857228F009581A8 /* CoreGraphics.framework */,
 				0731B1D01857228F009581A8 /* UIKit.framework */,
 				0731B1E51857228F009581A8 /* XCTest.framework */,
+				09669CF04BCC47D0A4D4AA86 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -133,7 +137,6 @@
 				0731B1FE18572629009581A8 /* MainViewController.m */,
 				0731B2031857295A009581A8 /* PhotoViewController.h */,
 				0731B2041857295A009581A8 /* PhotoViewController.m */,
-				0731B2051857295A009581A8 /* PhotoViewController.xib */,
 			);
 			path = PhotoTransitionsExample;
 			sourceTree = "<group>";
@@ -185,9 +188,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0731B1F51857228F009581A8 /* Build configuration list for PBXNativeTarget "PhotoTransitionsExample" */;
 			buildPhases = (
+				0D694B1C3DE84EB697C4D6A2 /* Check Pods Manifest.lock */,
 				0731B1C51857228F009581A8 /* Sources */,
 				0731B1C61857228F009581A8 /* Frameworks */,
 				0731B1C71857228F009581A8 /* Resources */,
+				03E8DBC982AF4C79924D1826 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -254,7 +259,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0731B1FC185722BD009581A8 /* Main.storyboard in Resources */,
-				0731B2071857295A009581A8 /* PhotoViewController.xib in Resources */,
 				0731B1D71857228F009581A8 /* InfoPlist.strings in Resources */,
 				0731B1DF1857228F009581A8 /* Images.xcassets in Resources */,
 			);
@@ -269,6 +273,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		03E8DBC982AF4C79924D1826 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0D694B1C3DE84EB697C4D6A2 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0731B1C51857228F009581A8 /* Sources */ = {
@@ -396,6 +433,7 @@
 		};
 		0731B1F61857228F009581A8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7587AF61826C4926A79A338A /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -411,6 +449,7 @@
 		};
 		0731B1F71857228F009581A8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7587AF61826C4926A79A338A /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
