@@ -34,5 +34,14 @@
     self.view.frame = CGRectMake(0, 0, 320, 320*ratio);
     self.view.contentMode = UIViewContentModeScaleAspectFit;
     self.view.userInteractionEnabled = YES;
+    
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTapped:)];
+    [self.view addGestureRecognizer:tapGesture];
 }
+
+- (void)viewTapped:(UITapGestureRecognizer *)gesture
+{    
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
 @end

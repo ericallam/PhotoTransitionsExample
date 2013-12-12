@@ -16,6 +16,8 @@
 @property (assign, nonatomic) CGRect startingFrame;
 @property (assign, atomic) NSTimeInterval duration;
 
+@property (strong, nonatomic) UIView *sourcePlaceholderView;
+
 @end
 
 static UIImage *snapshotView(UIView *view){
@@ -36,6 +38,7 @@ static UIImage *snapshotView(UIView *view){
         self.startingFrame = startingFrame;
         self.duration = 0.2f;
         self.animationCurve = UIViewAnimationCurveEaseIn;
+        self.reverse = NO;
         
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(keyboardWillBeHidden:)
@@ -60,15 +63,43 @@ static UIImage *snapshotView(UIView *view){
 {
     self.context = transitionContext;
     
+    if (self.reverse) {
+        [self animateReverseTransition];
+    }else{
+        [self animateForwardTransition];
+    }
+}
+
+- (void)animateReverseTransition
+{
+    UIViewController *fromVC = [self.context viewControllerForKey:UITransitionContextFromViewControllerKey];
+    
+    [UIView beginAnimations:nil context:NULL];
+    
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDidStopSelector:@selector(animationDidStop:finished:context:)];
+    
+    [UIView setAnimationDuration:self.duration];
+    [UIView setAnimationCurve:self.animationCurve];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    
+    self.sourcePlaceholderView.transform = CGAffineTransformIdentity;
+    fromVC.view.frame = self.startingFrame;
+    
+    [UIView commitAnimations];
+}
+
+- (void)animateForwardTransition
+{
     UIViewController *fromVC = [self.context viewControllerForKey:UITransitionContextFromViewControllerKey];
     UIView *containerView = [self.context containerView];
     
     UIImage *fromSnapshotBeforeBlur = snapshotView(fromVC.view);
     UIImage *fromSnapshot = [fromSnapshotBeforeBlur applyBlurWithRadius:1.0 tintColor:nil saturationDeltaFactor:0.1 maskImage:nil];
-    UIImageView *fromSnapshotView = [[UIImageView alloc] initWithImage:fromSnapshot];
+    self.sourcePlaceholderView = [[UIImageView alloc] initWithImage:fromSnapshot];
     
-    fromSnapshotView.frame = CGRectMake(-25, -25, containerView.bounds.size.width+50, containerView.bounds.size.height+50);
-    [containerView addSubview:fromSnapshotView];
+    self.sourcePlaceholderView.frame = CGRectMake(-25, -25, containerView.bounds.size.width+50, containerView.bounds.size.height+50);
+    [containerView addSubview:self.sourcePlaceholderView];
     
     [fromVC.view removeFromSuperview];
     
@@ -96,7 +127,7 @@ static UIImage *snapshotView(UIView *view){
     
     CGFloat coordinateY = (containerHeight / 2) - (originalHeight / 2);
     toView.frame = CGRectMake(0, coordinateY, CGRectGetWidth(originalFrame), CGRectGetHeight(originalFrame));
-    fromSnapshotView.transform = CGAffineTransformMakeScale(0.9f, 0.9f);
+    self.sourcePlaceholderView.transform = CGAffineTransformMakeScale(0.9f, 0.9f);
     
     [UIView commitAnimations];
 }

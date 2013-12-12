@@ -13,7 +13,7 @@
 #import "ScaleAndBlurTransition.h"
 
 @interface MainViewController () <UIViewControllerTransitioningDelegate>
-@property (assign, nonatomic) CGRect currentFrame;
+@property (strong, nonatomic) ScaleAndBlurTransition *scaleAndBlurTransition;
 @end
 
 @implementation MainViewController
@@ -29,7 +29,9 @@
 {
     PhotoViewController *photoVC = [[PhotoViewController alloc] initWithImage:[UIImage imageNamed:@"PiperWow2"]];
     
-    self.currentFrame = [sender convertRect:sender.bounds toView:nil];
+    CGRect senderFrame = [sender convertRect:sender.bounds toView:nil];
+    
+    self.scaleAndBlurTransition = [[ScaleAndBlurTransition alloc] initWithStartingFrame:senderFrame];
     
     photoVC.modalPresentationStyle = UIModalPresentationCustom;
     photoVC.transitioningDelegate = self;
@@ -39,9 +41,14 @@
 
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source
 {
-    ScaleAndBlurTransition *transition = [[ScaleAndBlurTransition alloc] initWithStartingFrame:self.currentFrame];
+    return self.scaleAndBlurTransition;
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
+{
+    self.scaleAndBlurTransition.reverse = YES;
     
-    return transition;
+    return self.scaleAndBlurTransition;
 }
 
 @end

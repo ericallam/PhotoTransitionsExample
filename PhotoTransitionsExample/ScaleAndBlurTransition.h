@@ -12,4 +12,6 @@
 
 - (instancetype)initWithStartingFrame:(CGRect)startingFrame;
 
+@property (assign, nonatomic) BOOL reverse;
+
 @end
