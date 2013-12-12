@@ -45,7 +45,7 @@
     self.view.userInteractionEnabled = YES;
     
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTapped:)];
-    [self.view addGestureRecognizer:tapGesture];
+    [[[UIApplication sharedApplication] keyWindow] addGestureRecognizer:tapGesture];
     
     UIPinchGestureRecognizer *pinchGesture = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(didPinch:)];
     [self.view addGestureRecognizer:pinchGesture];
@@ -56,6 +56,8 @@
     self.interactiveTransition = nil;
     
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    
+    [[[UIApplication sharedApplication] keyWindow] removeGestureRecognizer:gesture];
 }
 
 - (void)didPinch:(UIPinchGestureRecognizer *)gesture
@@ -66,22 +68,16 @@
         case UIGestureRecognizerStateBegan: {
             self.interactiveTransition = [UIPercentDrivenInteractiveTransition new];
             
-            NSLog(@"Pinch began, scale: %f", gesture.scale);
-            
             [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
             
             break;
         }
         case UIGestureRecognizerStateChanged: {
-            NSLog(@"Pinch changed, scale: %f", gesture.scale);
-            
             if (gesture.scale > 1.0) {
                 self.view.transform = CGAffineTransformMakeScale(gesture.scale, gesture.scale);
             }else{
                 [transition updateInteractiveTransition:1.0-gesture.scale];
             }
-            
-            
             
             break;
         }
