@@ -10,6 +10,7 @@
 #import "PhotoViewController.h"
 #import "BasicScaleTransition.h"
 #import "DynamicScaleTransition.h"
+#import "ScaleAndBlurTransition.h"
 
 @interface MainViewController () <UIViewControllerTransitioningDelegate>
 @property (assign, nonatomic) CGRect currentFrame;
@@ -38,7 +39,7 @@
 
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source
 {
-    BasicScaleTransition *transition = [[BasicScaleTransition alloc] initWithStartingFrame:self.currentFrame];
+    ScaleAndBlurTransition *transition = [[ScaleAndBlurTransition alloc] initWithStartingFrame:self.currentFrame];
     
     return transition;
 }
