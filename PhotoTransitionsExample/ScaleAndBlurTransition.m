@@ -74,19 +74,14 @@ static UIImage *snapshotView(UIView *view){
 {
     UIViewController *fromVC = [self.context viewControllerForKey:UITransitionContextFromViewControllerKey];
     
-    [UIView beginAnimations:nil context:NULL];
-    
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationDidStopSelector:@selector(animationDidStop:finished:context:)];
-    
-    [UIView setAnimationDuration:self.duration];
-    [UIView setAnimationCurve:self.animationCurve];
-    [UIView setAnimationBeginsFromCurrentState:YES];
-    
-    self.sourcePlaceholderView.transform = CGAffineTransformIdentity;
-    fromVC.view.frame = self.startingFrame;
-    
-    [UIView commitAnimations];
+    [UIView animateWithDuration:self.duration delay:0 options:UIViewAnimationOptionCurveEaseIn
+                     animations:^{
+                         self.sourcePlaceholderView.transform = CGAffineTransformIdentity;
+                         fromVC.view.frame = self.startingFrame;
+                     } completion:^(BOOL finished) {
+                         [self.context completeTransition:YES];
+                     }];
+
 }
 
 - (void)animateForwardTransition
