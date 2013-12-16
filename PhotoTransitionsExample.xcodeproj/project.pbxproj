@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		072921D6185DE38700AD55D1 /* PhotoViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = 072921D4185DE38700AD55D1 /* PhotoViewController1.m */; };
+		072921D7185DE38700AD55D1 /* PhotoViewController1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 072921D5185DE38700AD55D1 /* PhotoViewController1.xib */; };
 		0731B1CD1857228F009581A8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0731B1CC1857228F009581A8 /* Foundation.framework */; };
 		0731B1CF1857228F009581A8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0731B1CE1857228F009581A8 /* CoreGraphics.framework */; };
 		0731B1D11857228F009581A8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0731B1D01857228F009581A8 /* UIKit.framework */; };
@@ -26,6 +28,11 @@
 		078DD08D18590C5D00C8D1A7 /* DynamicScaleTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 078DD08C18590C5D00C8D1A7 /* DynamicScaleTransition.m */; };
 		079B80571859D54D001DEACB /* ScaleAndBlurTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 079B80561859D54D001DEACB /* ScaleAndBlurTransition.m */; };
 		079B805A1859E3E0001DEACB /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 079B80591859E3E0001DEACB /* UIImage+ImageEffects.m */; };
+		07B5917B185DE52E00E178A0 /* PhotoViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B5917A185DE52E00E178A0 /* PhotoViewController2.m */; };
+		07B5917E185E4BDE00E178A0 /* PhotoViewController3.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B5917D185E4BDE00E178A0 /* PhotoViewController3.m */; };
+		07B59181185E4C1C00E178A0 /* BlurredBackgroundTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B59180185E4C1C00E178A0 /* BlurredBackgroundTransition.m */; };
+		07B59184185E5C5000E178A0 /* PhotoViewController4.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B59183185E5C5000E178A0 /* PhotoViewController4.m */; };
+		07B59187185E5D5500E178A0 /* ReversableBlurredTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B59186185E5D5500E178A0 /* ReversableBlurredTransition.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +46,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		072921D3185DE38700AD55D1 /* PhotoViewController1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewController1.h; sourceTree = "<group>"; };
+		072921D4185DE38700AD55D1 /* PhotoViewController1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController1.m; sourceTree = "<group>"; };
+		072921D5185DE38700AD55D1 /* PhotoViewController1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoViewController1.xib; sourceTree = "<group>"; };
 		0731B1C91857228F009581A8 /* PhotoTransitionsExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoTransitionsExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0731B1CC1857228F009581A8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0731B1CE1857228F009581A8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -68,6 +78,16 @@
 		079B80561859D54D001DEACB /* ScaleAndBlurTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScaleAndBlurTransition.m; sourceTree = "<group>"; };
 		079B80581859E3E0001DEACB /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		079B80591859E3E0001DEACB /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
+		07B59179185DE52E00E178A0 /* PhotoViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewController2.h; sourceTree = "<group>"; };
+		07B5917A185DE52E00E178A0 /* PhotoViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController2.m; sourceTree = "<group>"; };
+		07B5917C185E4BDE00E178A0 /* PhotoViewController3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewController3.h; sourceTree = "<group>"; };
+		07B5917D185E4BDE00E178A0 /* PhotoViewController3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController3.m; sourceTree = "<group>"; };
+		07B5917F185E4C1C00E178A0 /* BlurredBackgroundTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlurredBackgroundTransition.h; sourceTree = "<group>"; };
+		07B59180185E4C1C00E178A0 /* BlurredBackgroundTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlurredBackgroundTransition.m; sourceTree = "<group>"; };
+		07B59182185E5C5000E178A0 /* PhotoViewController4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewController4.h; sourceTree = "<group>"; };
+		07B59183185E5C5000E178A0 /* PhotoViewController4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController4.m; sourceTree = "<group>"; };
+		07B59185185E5D5500E178A0 /* ReversableBlurredTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReversableBlurredTransition.h; sourceTree = "<group>"; };
+		07B59186185E5D5500E178A0 /* ReversableBlurredTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReversableBlurredTransition.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +147,7 @@
 		0731B1D21857228F009581A8 /* PhotoTransitionsExample */ = {
 			isa = PBXGroup;
 			children = (
+				0731F472185DE11C0027453B /* Controllers */,
 				0731B208185733E4009581A8 /* Transitions */,
 				0731B1DB1857228F009581A8 /* AppDelegate.h */,
 				0731B1DC1857228F009581A8 /* AppDelegate.m */,
@@ -181,8 +202,28 @@
 				078DD08C18590C5D00C8D1A7 /* DynamicScaleTransition.m */,
 				079B80551859D54D001DEACB /* ScaleAndBlurTransition.h */,
 				079B80561859D54D001DEACB /* ScaleAndBlurTransition.m */,
+				07B5917F185E4C1C00E178A0 /* BlurredBackgroundTransition.h */,
+				07B59180185E4C1C00E178A0 /* BlurredBackgroundTransition.m */,
+				07B59185185E5D5500E178A0 /* ReversableBlurredTransition.h */,
+				07B59186185E5D5500E178A0 /* ReversableBlurredTransition.m */,
 			);
 			name = Transitions;
+			sourceTree = "<group>";
+		};
+		0731F472185DE11C0027453B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				072921D3185DE38700AD55D1 /* PhotoViewController1.h */,
+				072921D4185DE38700AD55D1 /* PhotoViewController1.m */,
+				072921D5185DE38700AD55D1 /* PhotoViewController1.xib */,
+				07B59179185DE52E00E178A0 /* PhotoViewController2.h */,
+				07B5917A185DE52E00E178A0 /* PhotoViewController2.m */,
+				07B5917C185E4BDE00E178A0 /* PhotoViewController3.h */,
+				07B5917D185E4BDE00E178A0 /* PhotoViewController3.m */,
+				07B59182185E5C5000E178A0 /* PhotoViewController4.h */,
+				07B59183185E5C5000E178A0 /* PhotoViewController4.m */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,6 +304,7 @@
 				0731B1FC185722BD009581A8 /* Main.storyboard in Resources */,
 				0731B1D71857228F009581A8 /* InfoPlist.strings in Resources */,
 				0731B1DF1857228F009581A8 /* Images.xcassets in Resources */,
+				072921D7185DE38700AD55D1 /* PhotoViewController1.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,10 +323,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07B5917E185E4BDE00E178A0 /* PhotoViewController3.m in Sources */,
+				072921D6185DE38700AD55D1 /* PhotoViewController1.m in Sources */,
 				079B805A1859E3E0001DEACB /* UIImage+ImageEffects.m in Sources */,
+				07B59184185E5C5000E178A0 /* PhotoViewController4.m in Sources */,
 				0731B1DD1857228F009581A8 /* AppDelegate.m in Sources */,
 				0731B2061857295A009581A8 /* PhotoViewController.m in Sources */,
+				07B59187185E5D5500E178A0 /* ReversableBlurredTransition.m in Sources */,
+				07B5917B185DE52E00E178A0 /* PhotoViewController2.m in Sources */,
 				0731B20B18573452009581A8 /* BasicScaleTransition.m in Sources */,
+				07B59181185E4C1C00E178A0 /* BlurredBackgroundTransition.m in Sources */,
 				079B80571859D54D001DEACB /* ScaleAndBlurTransition.m in Sources */,
 				0731B1FF18572629009581A8 /* MainViewController.m in Sources */,
 				0731B1D91857228F009581A8 /* main.m in Sources */,

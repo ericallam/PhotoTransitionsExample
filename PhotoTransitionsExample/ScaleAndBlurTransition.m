@@ -140,12 +140,5 @@ static UIImage *snapshotView(UIView *view){
     [self.context completeTransition:![self.context transitionWasCancelled]];
 }
 
-- (void)didPinch:(UIPinchGestureRecognizer *)gesture
-{
-    if (gesture.state == UIGestureRecognizerStateBegan){
-        self.interactiveTransition = [UIPercentDrivenInteractiveTransition new];
-    }
-}
-
 
 @end

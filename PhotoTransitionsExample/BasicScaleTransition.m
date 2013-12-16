@@ -9,7 +9,7 @@
 #import "BasicScaleTransition.h"
 
 @interface BasicScaleTransition ()
-@property (assign, atomic) UIViewAnimationCurve animationCurve;
+@property (assign, nonatomic) UIViewAnimationCurve animationCurve;
 @end
 
 @implementation BasicScaleTransition
@@ -18,21 +18,11 @@
 {
     if (self = [super init]) {
         self.startingFrame = startingFrame;
-        self.duration = 0.4f;
+        self.duration = 0.2f;
         self.animationCurve = UIViewAnimationCurveEaseIn;
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(keyboardWillBeHidden:)
-                                                     name:UIKeyboardWillHideNotification object:nil];
     }
     
     return self;
-}
-
-- (void)keyboardWillBeHidden:(NSNotification*)aNotification
-{
-    self.duration = [[aNotification userInfo][UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-    self.animationCurve = [[aNotification userInfo][UIKeyboardAnimationCurveUserInfoKey] integerValue];
 }
 
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext
@@ -40,9 +30,9 @@
     return self.duration;
 }
 
-- (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext
+- (void)animateTransition:(id<UIViewControllerContextTransitioning>)context
 {
-    self.context = transitionContext;
+    self.context = context;
     
     UIViewController *fromVC = [self.context viewControllerForKey:UITransitionContextFromViewControllerKey];
     UIViewController *toVC = [self.context viewControllerForKey:UITransitionContextToViewControllerKey];
@@ -53,31 +43,18 @@
 
     toView.frame = self.startingFrame;
     
-    [[self.context containerView] addSubview:toView];
+    [[context containerView] addSubview:toView];
     
-    [UIView beginAnimations:nil context:NULL];
-    
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationDidStopSelector:@selector(animationDidStop:finished:context:)];
-    
-    [UIView setAnimationDuration:self.duration];
-    [UIView setAnimationCurve:self.animationCurve];
-    [UIView setAnimationBeginsFromCurrentState:YES];
-    
-    CGFloat containerHeight = CGRectGetHeight(self.context.containerView.frame);
-    CGFloat originalHeight = CGRectGetHeight(originalFrame);
-    
-    CGFloat coordinateY = (containerHeight / 2) - (originalHeight / 2);
-    
-    toView.frame = CGRectMake(0, coordinateY, CGRectGetWidth(originalFrame), CGRectGetHeight(originalFrame));
-    fromVC.view.transform = CGAffineTransformMakeScale(0.9f, 0.9f);
-    
-    [UIView commitAnimations];
-}
-
-- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag context:(void *)context
-{
-    [self.context completeTransition:YES];
+    [UIView animateWithDuration:self.duration delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        CGFloat containerHeight = CGRectGetHeight(self.context.containerView.frame);
+        CGFloat originalHeight = CGRectGetHeight(originalFrame);
+        
+        CGFloat coordinateY = (containerHeight / 2) - (originalHeight / 2);
+        
+        toView.frame = CGRectMake(0, coordinateY, CGRectGetWidth(originalFrame), CGRectGetHeight(originalFrame));
+    } completion:^(BOOL finished) {
+        [self.context completeTransition:YES];
+    }];
 }
 
 @end
