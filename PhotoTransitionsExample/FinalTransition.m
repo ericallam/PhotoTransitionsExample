@@ -6,10 +6,10 @@
 //  Copyright (c) 2013 Code School. All rights reserved.
 //
 
-#import "ScaleAndBlurTransition.h"
+#import "FinalTransition.h"
 #import "UIImage+ImageEffects.h"
 
-@interface ScaleAndBlurTransition ()
+@interface FinalTransition ()
 
 @property (assign, atomic) UIViewAnimationCurve animationCurve;
 @property (strong, nonatomic) id<UIViewControllerContextTransitioning> context;
@@ -30,7 +30,7 @@ static UIImage *snapshotView(UIView *view){
     return i;
 }
 
-@implementation ScaleAndBlurTransition
+@implementation FinalTransition
 
 - (instancetype)initWithStartingFrame:(CGRect)startingFrame;
 {

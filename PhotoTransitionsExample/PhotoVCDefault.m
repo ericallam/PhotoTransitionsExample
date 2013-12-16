@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 Code School. All rights reserved.
 //
 
-#import "PhotoViewController1.h"
+#import "PhotoVCDefault.h"
 
-@interface PhotoViewController1 ()
+@interface PhotoVCDefault ()
 
 @end
 
-@implementation PhotoViewController1
+@implementation PhotoVCDefault
 
 
 - (IBAction)dismissPhoto:(id)sender

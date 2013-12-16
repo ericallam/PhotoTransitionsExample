@@ -6,21 +6,23 @@
 //  Copyright (c) 2013 Code School. All rights reserved.
 //
 
-#import "PhotoViewController3.h"
-#import "BlurredBackgroundTransition.h"
+#import "PhotoVCScaleInPlace.h"
+#import "BasicScaleTransition.h"
 
-@interface PhotoViewController3 ()
+@interface PhotoVCScaleInPlace ()
 @property (strong, nonatomic) UIImage *image;
 @property (assign, nonatomic) CGRect startingFrame;
+@property (strong, nonatomic) BasicScaleTransition *scaleTransition;
 @end
 
-@implementation PhotoViewController3
+@implementation PhotoVCScaleInPlace
 
 - (instancetype)initWithStartingFrame:(CGRect)startingFrame;
 {
     if (self = [super init]) {
-        self.image = [UIImage imageNamed:@"PiperWow3"];
+        self.image = [UIImage imageNamed:@"PiperWow2"];
         self.startingFrame = startingFrame;
+        self.scaleTransition = [[BasicScaleTransition alloc] initWithStartingFrame:self.startingFrame];
     }
     
     return self;
@@ -55,7 +57,7 @@
 
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source
 {
-    return [[BlurredBackgroundTransition alloc] initWithStartingFrame:self.startingFrame];
+    return [[BasicScaleTransition alloc] initWithStartingFrame:self.startingFrame];
 }
 
 

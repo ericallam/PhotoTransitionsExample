@@ -46,7 +46,7 @@
                                                     </state>
                                                     <state key="selected" image="PiperWow1"/>
                                                     <connections>
-                                                        <action selector="defaultModal:forEvent:" destination="aNe-eG-8hf" eventType="touchUpInside" id="Yst-hP-8ue"/>
+                                                        <action selector="defaultModal:" destination="aNe-eG-8hf" eventType="touchUpInside" id="WtQ-pf-sti"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -70,7 +70,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="73"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" text="Tap on the image to display it using a BasicScaleTransition, and then tap again to dismiss" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Kr-F2-YZg">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" text="Tap on the image to display it using a scale-in-place" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Kr-F2-YZg">
                                                     <rect key="frame" x="92" y="7" width="228" height="60"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -93,7 +93,7 @@
                                                     </state>
                                                     <state key="selected" image="PiperWow2"/>
                                                     <connections>
-                                                        <action selector="basicScaleModal:forEvent:" destination="aNe-eG-8hf" eventType="touchUpInside" id="4Kv-e7-GZA"/>
+                                                        <action selector="scaleInPlaceModal:" destination="aNe-eG-8hf" eventType="touchUpInside" id="0Ec-Rg-4x3"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -140,7 +140,7 @@
                                                     </state>
                                                     <state key="selected" image="PiperWow3"/>
                                                     <connections>
-                                                        <action selector="blurredBackgroundModal:" destination="aNe-eG-8hf" eventType="touchUpInside" id="GLE-1c-FFG"/>
+                                                        <action selector="blurredBackgroundModal:" destination="aNe-eG-8hf" eventType="touchUpInside" id="qbw-eN-RZ7"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -164,8 +164,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="73"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" text="This transition is reversable, and a tap anywhere on the screen will dismiss the modal and scale it back into place" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zC1-W6-Fcb">
-                                                    <rect key="frame" x="92" y="7" width="228" height="60"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" editable="NO" text="This transition is reversable, and a tap anywhere on the screen will dismiss the modal and scale it back into place" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zC1-W6-Fcb">
+                                                    <rect key="frame" x="93" y="7" width="228" height="60"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
@@ -235,7 +235,7 @@
                                                     </state>
                                                     <state key="selected" image="PiperWow2"/>
                                                     <connections>
-                                                        <action selector="fullTransition:" destination="aNe-eG-8hf" eventType="touchUpInside" id="7rU-yg-k7Y"/>
+                                                        <action selector="fullModal:" destination="aNe-eG-8hf" eventType="touchUpInside" id="UZ2-Ag-Vkd"/>
                                                     </connections>
                                                 </button>
                                             </subviews>

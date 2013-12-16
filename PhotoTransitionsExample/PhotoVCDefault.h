@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PhotoViewController1 : UIViewController
+@interface PhotoVCDefault : UIViewController
 
 @end

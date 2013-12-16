@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PhotoViewController2 : UIViewController
-                                    <UIViewControllerTransitioningDelegate>
+@interface PhotoVCReversable : UIViewController
+<UIViewControllerTransitioningDelegate>
 - (instancetype)initWithStartingFrame:(CGRect)startingFrame;
 @end

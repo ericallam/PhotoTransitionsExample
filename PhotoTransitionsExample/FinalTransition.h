@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ScaleAndBlurTransition : NSObject <UIViewControllerAnimatedTransitioning>
+@interface FinalTransition : NSObject <UIViewControllerAnimatedTransitioning>
 
 - (instancetype)initWithStartingFrame:(CGRect)startingFrame;
 

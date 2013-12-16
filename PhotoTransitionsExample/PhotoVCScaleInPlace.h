@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PhotoViewController3 : UIViewController
-<UIViewControllerTransitioningDelegate>
+@interface PhotoVCScaleInPlace : UIViewController
+                                    <UIViewControllerTransitioningDelegate>
 - (instancetype)initWithStartingFrame:(CGRect)startingFrame;
 @end

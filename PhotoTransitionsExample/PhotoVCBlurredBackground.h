@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PhotoViewController4 : UIViewController
+@interface PhotoVCBlurredBackground : UIViewController
 <UIViewControllerTransitioningDelegate>
 - (instancetype)initWithStartingFrame:(CGRect)startingFrame;
 @end

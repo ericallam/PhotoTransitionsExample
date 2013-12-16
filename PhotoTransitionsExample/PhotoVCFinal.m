@@ -6,20 +6,20 @@
 //  Copyright (c) 2013 Code School. All rights reserved.
 //
 
-#import "PhotoViewController.h"
-#import "ScaleAndBlurTransition.h"
+#import "PhotoVCFinal.h"
+#import "FinalTransition.h"
 
-@interface PhotoViewController ()
+@interface PhotoVCFinal ()
 @property (strong, nonatomic) UIImage *image;
 @property (strong, nonatomic) UIDynamicAnimator *animator;
 @property (strong, nonatomic) UIAttachmentBehavior *panAttachment;
 @property (strong, nonatomic) UIGravityBehavior *gravity;
 @property (strong, nonatomic) UIPushBehavior *pushBehavior;
-@property (strong, nonatomic) ScaleAndBlurTransition *scaleAndBlurTransition;
+@property (strong, nonatomic) FinalTransition *scaleAndBlurTransition;
 @property (strong, nonatomic) id<UIViewControllerInteractiveTransitioning> interactiveTransition;
 @end
 
-@implementation PhotoViewController
+@implementation PhotoVCFinal
 
 - (instancetype)initWithImage:(UIImage *)image;
 {
@@ -30,7 +30,7 @@
 {
     if (self = [super init]) {
         self.image = image;
-        self.scaleAndBlurTransition = [[ScaleAndBlurTransition alloc] initWithStartingFrame:startingFrame];
+        self.scaleAndBlurTransition = [[FinalTransition alloc] initWithStartingFrame:startingFrame];
     }
     
     return self;

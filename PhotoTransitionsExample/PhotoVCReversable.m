@@ -6,16 +6,16 @@
 //  Copyright (c) 2013 Code School. All rights reserved.
 //
 
-#import "PhotoViewController4.h"
+#import "PhotoVCReversable.h"
 #import "ReversableBlurredTransition.h"
 
-@interface PhotoViewController4 ()
+@interface PhotoVCReversable ()
 @property (strong, nonatomic) UIImage *image;
 @property (assign, nonatomic) CGRect startingFrame;
 @property (strong, nonatomic) ReversableBlurredTransition *transition;
 @end
 
-@implementation PhotoViewController4
+@implementation PhotoVCReversable
 
 - (instancetype)initWithStartingFrame:(CGRect)startingFrame;
 {
