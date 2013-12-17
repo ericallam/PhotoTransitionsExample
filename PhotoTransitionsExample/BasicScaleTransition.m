@@ -34,7 +34,6 @@
 {
     self.context = context;
     
-    UIViewController *fromVC = [self.context viewControllerForKey:UITransitionContextFromViewControllerKey];
     UIViewController *toVC = [self.context viewControllerForKey:UITransitionContextToViewControllerKey];
     
     UIView *toView = toVC.view;

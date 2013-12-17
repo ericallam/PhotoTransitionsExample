@@ -3,7 +3,6 @@
 //  PhotoTransitionsExample
 //
 //  Created by Eric Allam on 12/12/2013.
-//  Copyright (c) 2013 Code School. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -12,7 +11,7 @@
 
 - (instancetype)initWithStartingFrame:(CGRect)startingFrame;
 
-@property (assign, nonatomic) BOOL destinationViewAlreadyOutOfFrame;
+@property (assign, nonatomic) BOOL animateForegroundBackToStartingFrame;
 @property (assign, nonatomic) BOOL reverse;
 @property (strong, nonatomic) id<UIViewControllerInteractiveTransitioning> interactiveTransition;
 
