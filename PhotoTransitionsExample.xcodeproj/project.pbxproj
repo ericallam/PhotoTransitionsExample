@@ -71,6 +71,7 @@
 		0731B2041857295A009581A8 /* PhotoVCFinal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoVCFinal.m; sourceTree = "<group>"; };
 		0731B20918573452009581A8 /* BasicScaleTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicScaleTransition.h; sourceTree = "<group>"; };
 		0731B20A18573452009581A8 /* BasicScaleTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicScaleTransition.m; sourceTree = "<group>"; };
+		079AC55B1860C7B900B2B39B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		079B80551859D54D001DEACB /* FinalTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinalTransition.h; sourceTree = "<group>"; };
 		079B80561859D54D001DEACB /* FinalTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinalTransition.m; sourceTree = "<group>"; };
 		079B80581859E3E0001DEACB /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
@@ -114,6 +115,7 @@
 		0731B1C01857228F009581A8 = {
 			isa = PBXGroup;
 			children = (
+				079AC55B1860C7B900B2B39B /* README.md */,
 				0731B1D21857228F009581A8 /* PhotoTransitionsExample */,
 				0731B1EB1857228F009581A8 /* PhotoTransitionsExampleTests */,
 				0731B1CB1857228F009581A8 /* Frameworks */,
